@@ -1,7 +1,5 @@
 /* BASE STYLES */
 :root {
-    /* MEDIA QUERY */
-    --desktop: 1200px;
     /* COLOR PRIMARY */
     /* Text */
     --very-dark-desaturated-blue: hsl(238, 29%, 16%);
@@ -36,36 +34,78 @@
 
 body {
     font-size: 12px;
-    background-color: var(--soft-violet);
+    background-image: linear-gradient(var(--soft-violet), var(--soft-blue));
     font-family: var(--kumbh);
+    padding-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
 }
 
 /* MAIN STYLES */
 
 .faq {
     width: 87%;
+    max-width: 920px;
     margin-top: 8rem;
-    margin-left: auto;
-    margin-right: auto;
     padding: 1.5rem;
     border-radius: 1rem;
+    box-shadow: 0 2rem 2rem rgba(29, 30, 53, .3);
     background: #fff url(../images/bg-pattern-mobile.svg) no-repeat center 0;
 }
+@media (min-width: 1100px) {
+    .faq {
+        display: flex;
+        overflow-x: hidden;
+        margin-top: 0;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+        background: #fff url(../images/bg-pattern-desktop.svg) no-repeat -520px -280px / cover;
+    }
+}
+
 /* Illustration */
 .faq__img {
     height: 90px;
+}
+@media (min-width: 1100px) {
+    .faq__img {
+        width: 50%;
+    }
 }
 .faq__img-illustration {
     position: relative;
     bottom: 135px;
     right: 8px;
 }
+@media (min-width: 1100px) {
+    .faq__img-illustration {
+        bottom: 0;
+        left: -100px;
+    }
+}
 
+@media (min-width: 1100px) {
+    .faq__container {
+        width: 50%;
+        padding-left: 1rem;
+        padding-right: 5.4rem;
+    }
+}
 /* FAQ title */
 .faq__title {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
+}
+@media (min-width: 1100px) {
+    .faq__title {
+        text-align: left;
+    }
 }
 
 /* Question content */
@@ -99,19 +139,19 @@ input:checked ~ .faq__content-question {
     font-weight: 700;
 }
 input:checked ~ .faq__content-answer {
-    height: 54px;
+    max-height: 54px;
     margin-top: 12px;
     margin-bottom: 12px;
-    transition: height .3s;
+    transition: max-height .3s;
 }
 .faq__content-answer {
     color: var(--dark-grayish-blue);
     margin: 0;
     width: 90%;
-    height: 0;
+    max-height: 0;
     line-height: 1.5;
     overflow: hidden;
-    transition: height .3s;
+    transition: max-height .3s;
 }
 
 /* Footer */
@@ -122,5 +162,5 @@ input:checked ~ .faq__content-answer {
     margin-bottom: 1rem;
 }
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: var(--light-grayish-blue);
 }
